@@ -5,29 +5,11 @@
 
 namespace enigma {
 
-    class ENIGMA_API Rotor {
-    public:
-        Rotor();
-		
-        Rotor(const Rotor& cp);
+class ENIGMA_API Rotor {
+public:
+    Rotor() = default;
+};
 
-		Rotor& operator=(const Rotor& cp);
-		
-		void RingStellung(char l);
-
-		void GrundStellung(char l);
-
-		void Rotate();
-
-		enum class Direction : bool {
-			STRAIGHT = true, //!< alphabet --> code
-			REVERSE = false, //!< code --> alphabet
-		};
-
-		char Translate(char l, Direction dir) const;
-
-		bool IsNotch() const;
-    };
 }
 
-#endif
+#endif // ENIGMA_ROTOR_H

@@ -5,10 +5,11 @@
 
 namespace enigma {
 
-    class M3 {
-    public:
-        M3() = default;
-    };
+class M3 {
+public:
+    M3() = default;
+};
+
 }
 
 #endif
