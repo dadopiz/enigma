@@ -16,12 +16,4 @@
 #define ENIGMA_API
 #endif
 
-namespace enigma {
-
-inline constexpr bool ENIGMA_API is_valid_char(char letter) {
-    return (letter >= 'A' && letter <= 'Z');
-}
-
-}
-
 #endif // ENIGMA_GLOBAL_H
