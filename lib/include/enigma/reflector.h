@@ -6,29 +6,20 @@
 
 namespace enigma {
 
-class ENIGMA_API Reflector {
+class Reflector {
 public:
-    Reflector(std::array<char, 27> reflector)
+    Reflector(Letters reflector)
     : reflector_{std::move(reflector)}
     {}
 
-    inline char Translate(char letter) const {
+    char Translate(char letter) const {
         assert(is_valid(letter) && "Invalid letter.");
         return reflector_[to_index(letter)];
     }
 
 private:
-    const std::array<char, 27> reflector_;
+    const Letters reflector_;
 };
-
-namespace historical {
-
-struct reflector {
-    static const Reflector B;
-    static const Reflector C;
-};
-
-}
 
 }
 

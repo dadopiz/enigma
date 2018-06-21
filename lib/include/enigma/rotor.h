@@ -6,53 +6,57 @@
 
 namespace enigma {
 
-class ENIGMA_API Rotor {
+class Rotor {
 public:
-    Rotor(std::array<char, 27> rotor, char notch)
+    Rotor(Letters rotor, char notch)
     : rotor_(std::move(rotor))
     , notch_(notch)
     , ring_(0)
     , offset_(0)
     {}
 
-    inline void RingStellung(char ring) {
+    void RingStellung(char ring) {
         assert(is_valid(ring) && "ring not valid.");
         ring_ = to_index(ring);
     }
 
-    inline void Turn() {
+    void GrundStellung(char offset) {
+        assert(is_valid(offset) && "offset not valid.");
+        offset_ = to_index(offset);
+    }
+
+    void Turn() {
         offset_ = (offset_ + 1) % 26;
     }
 
-    inline bool IsNotch() const {
+    bool IsNotch() const {
         return to_char(offset_) == notch_;
     }
 
-    //TODO: translate char
-
-private:
-    inline char Offset(char letter, std::size_t offset) const {
-        return ALPHABET.at((to_index(letter) + offset + 26) % 26);
+    char TranslateStraight(char letter) const {
+        assert(is_valid(letter) && "letter not valid.");
+        letter = Offset(letter, offset_ - ring_);
+        letter = rotor_[to_index(letter)];
+        return Offset(letter, ring_ - offset_);
     }
 
-    const std::array<char, 27> rotor_;
+    char TranslateReverse(char letter) const {
+        assert(is_valid(letter) && "letter not valid.");
+        letter = Offset(letter, offset_ - ring_);
+        letter = ALPHABET[index_of(rotor_, letter)];
+        return Offset(letter, ring_ - offset_);
+    }
+private:
+    char Offset(char letter, std::size_t offset) const {
+        return ALPHABET[(to_index(letter) + offset + 26) % 26];
+    }
+
+    const Letters rotor_;
     const char notch_;
 
     std::size_t ring_;
     std::size_t offset_;
 };
-
-namespace historical {
-
-struct rotor {
-    static const Rotor I;
-    static const Rotor II;
-    static const Rotor III;
-    static const Rotor IV;
-    static const Rotor V;
-};
-
-}
 
 }
 
