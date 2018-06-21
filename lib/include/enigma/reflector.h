@@ -14,7 +14,7 @@ public:
 
     inline char Translate(char letter) const {
         assert(is_valid(letter) && "Invalid letter.");
-        return reflector_[static_cast<std::size_t>(letter - 'A')];
+        return reflector_[to_index(letter)];
     }
 
 private:

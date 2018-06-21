@@ -28,13 +28,31 @@ public:
         return to_char(offset_) == notch_;
     }
 
+    //TODO: translate char
+
 private:
+    inline char Offset(char letter, std::size_t offset) const {
+        return ALPHABET.at((to_index(letter) + offset + 26) % 26);
+    }
+
     const std::array<char, 27> rotor_;
     const char notch_;
 
     std::size_t ring_;
     std::size_t offset_;
 };
+
+namespace historical {
+
+struct rotor {
+    static const Rotor I;
+    static const Rotor II;
+    static const Rotor III;
+    static const Rotor IV;
+    static const Rotor V;
+};
+
+}
 
 }
 
