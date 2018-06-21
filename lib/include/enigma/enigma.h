@@ -2,6 +2,7 @@
 #define ENIGMA_H
 
 #include <enigma/global.h>
+#include <enigma/utils.h>
 #include <enigma/m3.h>
 #include <enigma/rotor.h>
 #include <enigma/reflector.h>

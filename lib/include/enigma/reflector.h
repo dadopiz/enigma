@@ -9,7 +9,8 @@ namespace enigma {
 class ENIGMA_API Reflector {
 public:
     Reflector(std::array<char, 27> reflector)
-     : reflector_{std::move(reflector)} {}
+    : reflector_{std::move(reflector)}
+    {}
 
     inline char Translate(char letter) const {
         assert(is_valid(letter) && "Invalid letter.");
