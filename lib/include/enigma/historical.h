@@ -15,7 +15,6 @@ struct rotor {
     static const ENIGMA_API Rotor III;
     static const ENIGMA_API Rotor IV;
     static const ENIGMA_API Rotor V;
-    
     static const ENIGMA_API Rotor VI;
     static const ENIGMA_API Rotor VII;
     static const ENIGMA_API Rotor VIII;

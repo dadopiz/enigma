@@ -2,17 +2,20 @@
 #define ENIGMA_ROTOR_H
 
 #include <cassert>
+#include <string>
 #include <enigma/utils.h>
+
+#include <iostream>
 
 namespace enigma {
 
 class Rotor {
 public:
-    Rotor(Letters rotor, char notch)
-    : rotor_(std::move(rotor))
-    , notch_(notch)
-    , ring_(0)
-    , offset_(0)
+    Rotor(Letters rotor, std::string notches)
+        : rotor_(std::move(rotor))
+        , notches_(std::move(notches))
+        , ring_(0)
+        , offset_(0)
     {}
 
     void RingStellung(char ring) {
@@ -30,10 +33,11 @@ public:
     }
 
     bool IsNotch() const {
-        return to_char(offset_) == notch_;
+        return (notches_.find(to_char(offset_)) != std::string::npos);
     }
 
     char TranslateStraight(char letter) const {
+        std::cout << "TranslateStraight(" << letter << ")";
         assert(is_valid(letter) && "letter not valid.");
         letter = Offset(letter, offset_ - ring_);
         letter = rotor_[to_index(letter)];
@@ -41,6 +45,7 @@ public:
     }
 
     char TranslateReverse(char letter) const {
+        std::cout << "TranslateReverse(" << letter << ")";
         assert(is_valid(letter) && "letter not valid.");
         letter = Offset(letter, offset_ - ring_);
         letter = ALPHABET[index_of(rotor_, letter)];
@@ -52,7 +57,7 @@ private:
     }
 
     const Letters rotor_;
-    const char notch_;
+    const std::string notches_;
 
     std::size_t ring_;
     std::size_t offset_;
