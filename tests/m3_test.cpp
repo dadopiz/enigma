@@ -6,11 +6,9 @@ TEST(m3_test, test_translate) {
     using enigma::historical::rotor;
     using enigma::historical::reflector;
 
-    enigma::M3 machine(rotor::I, rotor::II, rotor::III, reflector::B);
+    enigma::M3 machine(rotor::III, rotor::II, rotor::I, reflector::B);
 
-    EXPECT_EQ('B', machine.Translate('A'));
-    EXPECT_EQ('D', machine.Translate('A'));
-    EXPECT_EQ('Z', machine.Translate('A'));
-    EXPECT_EQ('G', machine.Translate('A'));
-    EXPECT_EQ('O', machine.Translate('A'));
+    std::string result("BDZGOWCXLTKSBTMCDLPBMUQOFXYHCXTGYJFLINHNXSHIUNTHEORXPQPKOVHC");
+    for(char res : result)
+        EXPECT_EQ(res, machine.Translate('A'));
 }

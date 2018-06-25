@@ -10,9 +10,9 @@ namespace enigma {
 class ENIGMA_API M3 {
 public:
     M3(const Rotor& fast_rotor
-    , const Rotor& midd_rotor
-    , const Rotor& slow_rotor
-    , const Reflector& reflector);
+       , const Rotor& midd_rotor
+       , const Rotor& slow_rotor
+       , const Reflector& reflector);
 
     char Translate(char letter);
 

@@ -5,10 +5,10 @@
 namespace enigma {
 
 M3::M3(const Rotor& fast_rotor
-    , const Rotor& midd_rotor
-    , const Rotor& slow_rotor
-    , const Reflector& reflector)
-    : rotors_{fast_rotor, midd_rotor, slow_rotor}
+       , const Rotor& midd_rotor
+       , const Rotor& slow_rotor
+       , const Reflector& reflector)
+    : rotors_{{fast_rotor, midd_rotor, slow_rotor}}
     , reflector_(reflector)
 {}
 
@@ -28,6 +28,8 @@ char M3::Translate(char letter) {
     assert(is_valid(letter) && "invalid letter.");
 
     Turn();
+
+    //TODO: plugboard
 
     for(Rotor& rotor : rotors_)
         letter = rotor.TranslateStraight(letter);

@@ -5,8 +5,6 @@
 #include <string>
 #include <enigma/utils.h>
 
-#include <iostream>
-
 namespace enigma {
 
 class Rotor {
@@ -37,7 +35,6 @@ public:
     }
 
     char TranslateStraight(char letter) const {
-        std::cout << "TranslateStraight(" << letter << ")";
         assert(is_valid(letter) && "letter not valid.");
         letter = Offset(letter, offset_ - ring_);
         letter = rotor_[to_index(letter)];
@@ -45,7 +42,6 @@ public:
     }
 
     char TranslateReverse(char letter) const {
-        std::cout << "TranslateReverse(" << letter << ")";
         assert(is_valid(letter) && "letter not valid.");
         letter = Offset(letter, offset_ - ring_);
         letter = ALPHABET[index_of(rotor_, letter)];
