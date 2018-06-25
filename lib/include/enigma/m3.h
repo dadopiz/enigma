@@ -4,6 +4,7 @@
 #include <enigma/global.h>
 #include <enigma/rotor.h>
 #include <enigma/reflector.h>
+#include <enigma/plugboard.h>
 
 namespace enigma {
 
@@ -20,13 +21,16 @@ public:
 
     void GrundStellung(char fast_offset, char midd_offset, char slow_offset);
 
+    void Reset();
+
+    bool Connect(char lhs, char rhs);
+
 private:
     void Turn();
 
     std::array<Rotor, 3> rotors_;
     Reflector reflector_;
-
-    //TODO: plugboard
+    Plugboard plugboard_;
 };
 
 }

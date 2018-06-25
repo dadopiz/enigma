@@ -29,7 +29,7 @@ char M3::Translate(char letter) {
 
     Turn();
 
-    //TODO: plugboard
+    letter = plugboard_.Translate(letter);
 
     for(Rotor& rotor : rotors_)
         letter = rotor.TranslateStraight(letter);
@@ -38,6 +38,8 @@ char M3::Translate(char letter) {
 
     for(auto it = rotors_.rbegin(); it != rotors_.rend(); ++it)
         letter = it->TranslateReverse(letter);
+
+    letter = plugboard_.Translate(letter);
 
     return letter;
 }
@@ -50,6 +52,14 @@ void M3::Turn() {
         rotors_[1].Turn();
 
     rotors_[0].Turn();
+}
+
+void M3::Reset() {
+    plugboard_.Reset();
+}
+
+bool M3::Connect(char lhs, char rhs) {
+    return plugboard_.Connect(lhs, rhs);
 }
 
 }
