@@ -9,7 +9,7 @@ namespace enigma {
 class Reflector {
 public:
     Reflector(Letters reflector)
-        : reflector_{std::move(reflector)}
+        : reflector_(std::move(reflector))
     {}
 
     char Translate(char letter) const {
