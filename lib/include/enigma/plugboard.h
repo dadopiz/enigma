@@ -1,5 +1,5 @@
-#ifndef PLUGBOARD_H
-#define PLUGBOARD_H
+#ifndef ENIGMA_PLUGBOARD_H
+#define ENIGMA_PLUGBOARD_H
 
 #include <enigma/global.h>
 #include <enigma/utils.h>
@@ -25,4 +25,4 @@ private:
 
 }
 
-#endif // PLUGBOARD_H
+#endif // ENIGMA_PLUGBOARD_H

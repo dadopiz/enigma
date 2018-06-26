@@ -1,21 +1,16 @@
 #ifndef ENIGMA_REFLECTOR_H
 #define ENIGMA_REFLECTOR_H
 
-#include <cassert>
+#include <enigma/global.h>
 #include <enigma/utils.h>
 
 namespace enigma {
 
-class Reflector {
+class ENIGMA_API Reflector {
 public:
-    Reflector(Letters reflector)
-        : reflector_(std::move(reflector))
-    {}
+    Reflector(Letters reflector);
 
-    char Translate(char letter) const {
-        assert(is_valid(letter) && "Invalid letter.");
-        return reflector_[to_index(letter)];
-    }
+    char Translate(char letter) const;
 
 private:
     const Letters reflector_;
