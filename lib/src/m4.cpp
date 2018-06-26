@@ -11,12 +11,7 @@ M4::M4(const Rotor& fast_rotor,
 {}
 
 std::string M4::Translate(const std::string& phrase) {
-    std::string result(phrase);
-
-    for(std::size_t i = 0; i < phrase.size(); ++i)
-        result[i] = Translate(result[i]);
-
-    return result;
+    return machine_.Translate(phrase);
 }
 
 void M4::RingStellung(char fast_ring, char midd_ring, char slow_ring, char thin_ring) {
@@ -28,21 +23,10 @@ void M4::GrundStellung(char fast_offset, char midd_offset, char slow_offset, cha
 }
 
 char M4::Translate(char letter) {
-    Turn();
     letter = plugboard_.Translate(letter);
     letter = machine_.Translate(letter);
     letter = plugboard_.Translate(letter);
     return letter;
-}
-
-void M4::Turn() {
-    if(machine_[1].IsNotch())
-        machine_[2].Turn();
-
-    if(machine_[0].IsNotch() || machine_[1].IsNotch())
-        machine_[1].Turn();
-
-    machine_[0].Turn();
 }
 
 void M4::Reset() {

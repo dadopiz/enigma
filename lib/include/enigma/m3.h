@@ -1,8 +1,6 @@
 #ifndef ENIGMA_M3_H
 #define ENIGMA_M3_H
 
-#include <string>
-
 #include <enigma/global.h>
 #include <enigma/machine.h>
 #include <enigma/plugboard.h>
@@ -29,8 +27,6 @@ public:
     bool Connect(char lhs, char rhs);
 
 private:
-    void Turn();
-
     Machine<3> machine_;
     Plugboard plugboard_;
 };

@@ -2,6 +2,7 @@
 #define ENIGMA_MACHINE_H
 
 #include <array>
+#include <string>
 
 #include <enigma/utils.h>
 #include <enigma/rotor.h>
@@ -11,13 +12,25 @@ namespace enigma {
 
 template<std::size_t ROTORS>
 class Machine {
+    static_assert(ROTORS >= 3, "Enigma must have at least 3 rotors");
 public:
     Machine(const std::array<Rotor, ROTORS>& rotors, const Reflector& reflector)
         : rotors_(rotors)
         , reflector_(reflector)
     {}
 
+    std::string Translate(const std::string& phrase) {
+        std::string result(phrase);
+
+        for(std::size_t i = 0; i < phrase.size(); ++i)
+            result[i] = Translate(result[i]);
+
+        return result;
+    }
+
     char Translate(char letter) {
+        Turn();
+
         for(Rotor& rotor : rotors_)
             letter = rotor.TranslateStraight(letter);
 
@@ -39,11 +52,17 @@ public:
             rotors_[i].GrundStellung(offsets[i]);
     }
 
-    Rotor& operator[](std::size_t index) {
-        return rotors_.at(index);
+private:
+    void Turn() {
+        if(rotors_[1].IsNotch())
+            rotors_[2].Turn();
+
+        if(rotors_[0].IsNotch() || rotors_[1].IsNotch())
+            rotors_[1].Turn();
+
+        rotors_[0].Turn();
     }
 
-private:
     std::array<Rotor, ROTORS> rotors_;
     Reflector reflector_;
 };

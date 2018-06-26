@@ -1,8 +1,6 @@
 #ifndef ENIGMA_M4_H
 #define ENIGMA_M4_H
 
-#include <string>
-
 #include <enigma/global.h>
 #include <enigma/machine.h>
 #include <enigma/plugboard.h>
@@ -30,8 +28,6 @@ public:
     bool Connect(char lhs, char rhs);
 
 private:
-    void Turn();
-
     Machine<4> machine_;
     Plugboard plugboard_;
 };

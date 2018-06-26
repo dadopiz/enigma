@@ -18,7 +18,6 @@ void M3::GrundStellung(char fast_offset, char midd_offset, char slow_offset) {
 }
 
 char M3::Translate(char letter) {
-    Turn();
     letter = plugboard_.Translate(letter);
     letter = machine_.Translate(letter);
     letter = plugboard_.Translate(letter);
@@ -26,12 +25,7 @@ char M3::Translate(char letter) {
 }
 
 std::string M3::Translate(const std::string& phrase) {
-    std::string result(phrase);
-
-    for(std::size_t i = 0; i < phrase.size(); ++i)
-        result[i] = Translate(result[i]);
-
-    return result;
+    return machine_.Translate(phrase);
 }
 
 void M3::ResetPlugboard() {
@@ -40,16 +34,6 @@ void M3::ResetPlugboard() {
 
 bool M3::Connect(char lhs, char rhs) {
     return plugboard_.Connect(lhs, rhs);
-}
-
-void M3::Turn() {
-    if(machine_[1].IsNotch())
-        machine_[2].Turn();
-
-    if(machine_[0].IsNotch() || machine_[1].IsNotch())
-        machine_[1].Turn();
-
-    machine_[0].Turn();
 }
 
 }
