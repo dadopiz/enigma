@@ -2,11 +2,14 @@
 
 namespace enigma {
 
+namespace historical {
+
 M3::M3(const Rotor& fast_rotor,
        const Rotor& midd_rotor,
        const Rotor& slow_rotor,
        const Reflector& reflector)
-    : machine_({{fast_rotor, midd_rotor, slow_rotor}}, reflector)
+    : machine_({fast_rotor, midd_rotor, slow_rotor})
+    , reflector_(reflector)
 {}
 
 void M3::RingStellung(char fast_ring, char midd_ring, char slow_ring) {
@@ -18,14 +21,22 @@ void M3::GrundStellung(char fast_offset, char midd_offset, char slow_offset) {
 }
 
 char M3::Translate(char letter) {
+    machine_.Turn();
     letter = plugboard_.Translate(letter);
-    letter = machine_.Translate(letter);
+    letter = machine_.TranslateStraight(letter);
+    letter = reflector_.Translate(letter);
+    letter = machine_.TranslateReverse(letter);
     letter = plugboard_.Translate(letter);
     return letter;
 }
 
 std::string M3::Translate(const std::string& phrase) {
-    return machine_.Translate(phrase);
+    std::string result(phrase);
+
+    for(std::size_t i = 0; i < phrase.size(); ++i)
+        result[i] = Translate(result[i]);
+
+    return result;
 }
 
 void M3::ResetPlugboard() {
@@ -34,6 +45,8 @@ void M3::ResetPlugboard() {
 
 bool M3::Connect(char lhs, char rhs) {
     return plugboard_.Connect(lhs, rhs);
+}
+
 }
 
 }

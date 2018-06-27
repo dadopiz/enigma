@@ -4,8 +4,6 @@
 #include <enigma/global.h>
 #include <enigma/utils.h>
 #include <enigma/machine.h>
-#include <enigma/m3.h>
-#include <enigma/m4.h>
 #include <enigma/rotor.h>
 #include <enigma/reflector.h>
 #include <enigma/plugboard.h>

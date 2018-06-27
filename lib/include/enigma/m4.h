@@ -3,9 +3,12 @@
 
 #include <enigma/global.h>
 #include <enigma/machine.h>
+#include <enigma/reflector.h>
 #include <enigma/plugboard.h>
 
 namespace enigma {
+
+namespace historical {
 
 class ENIGMA_API M4 {
 public:
@@ -23,14 +26,18 @@ public:
 
     void GrundStellung(char fast_offset, char midd_offset, char slow_offset, char thin_offset);
 
-    void Reset();
+    void ResetPlugboard();
 
     bool Connect(char lhs, char rhs);
 
 private:
-    Machine<4> machine_;
+    Machine machine_;
+    Rotor thin_rotor_;
+    Reflector thin_reflector_;
     Plugboard plugboard_;
 };
+
+}
 
 }
 

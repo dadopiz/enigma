@@ -1,28 +1,34 @@
 #ifndef ENIGMA_HISTORICAL_H
 #define ENIGMA_HISTORICAL_H
 
-#include <enigma/reflector.h>
-#include <enigma/rotor.h>
 #include <enigma/global.h>
+#include <enigma/rotor.h>
+#include <enigma/reflector.h>
+#include <enigma/m3.h>
+#include <enigma/m4.h>
 
 namespace enigma {
 
 namespace historical {
 
-struct rotor {
-    static const ENIGMA_API Rotor I;
-    static const ENIGMA_API Rotor II;
-    static const ENIGMA_API Rotor III;
-    static const ENIGMA_API Rotor IV;
-    static const ENIGMA_API Rotor V;
-    static const ENIGMA_API Rotor VI;
-    static const ENIGMA_API Rotor VII;
-    static const ENIGMA_API Rotor VIII;
+struct ENIGMA_API rotor {
+    static const Rotor I;
+    static const Rotor II;
+    static const Rotor III;
+    static const Rotor IV;
+    static const Rotor V;
+    static const Rotor VI;
+    static const Rotor VII;
+    static const Rotor VIII;
+    static const Rotor Beta;
+    static const Rotor Gamma;
 };
 
-struct reflector {
-    static const ENIGMA_API Reflector B;
-    static const ENIGMA_API Reflector C;
+struct ENIGMA_API reflector {
+    static const Reflector B;
+    static const Reflector C;
+    static const Reflector BThin;
+    static const Reflector CThin;
 };
 
 }

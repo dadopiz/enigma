@@ -3,9 +3,12 @@
 
 #include <enigma/global.h>
 #include <enigma/machine.h>
+#include <enigma/reflector.h>
 #include <enigma/plugboard.h>
 
 namespace enigma {
+
+namespace historical {
 
 class ENIGMA_API M3 {
 public:
@@ -27,9 +30,12 @@ public:
     bool Connect(char lhs, char rhs);
 
 private:
-    Machine<3> machine_;
+    Machine machine_;
+    Reflector reflector_;
     Plugboard plugboard_;
 };
+
+}
 
 }
 

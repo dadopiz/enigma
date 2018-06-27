@@ -1,24 +1,24 @@
 #include <gtest/gtest.h>
 #include <enigma/historical.h>
 
-TEST(m3_test, test_translate) {
+TEST(m4_test, test_translate) {
     using enigma::historical::rotor;
     using enigma::historical::reflector;
-    using enigma::historical::M3;
+    using enigma::historical::M4;
 
-    M3 machine(rotor::III, rotor::II, rotor::I, reflector::B);
+    M4 machine(rotor::III, rotor::II, rotor::I, rotor::Beta, reflector::BThin);
 
     std::string result("BDZGOWCXLTKSBTMCDLPBMUQOFXYHCXTGYJFLINHNXSHIUNTHEORXPQPKOVHC");
     for(char res : result)
         EXPECT_EQ(res, machine.Translate('A'));
 }
 
-TEST(m3_test, test_translate_phrase) {
+TEST(m4_test, test_translate_phrase) {
     using enigma::historical::rotor;
     using enigma::historical::reflector;
-    using enigma::historical::M3;
+    using enigma::historical::M4;
 
-    M3 machine(rotor::III, rotor::II, rotor::I, reflector::B);
+    M4 machine(rotor::III, rotor::II, rotor::I, rotor::Beta, reflector::BThin);
 
     std::string input(60, 'A');
     std::string result("BDZGOWCXLTKSBTMCDLPBMUQOFXYHCXTGYJFLINHNXSHIUNTHEORXPQPKOVHC");
