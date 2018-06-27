@@ -28,9 +28,6 @@ public:
     char Translate(char letter) const;
 
 private:
-    /**
-     * @brief reflector_ array of letters used for encryption
-     */
     const Letters reflector_;
 };
 

@@ -31,19 +31,19 @@ bool Rotor::IsNotch() const {
 
 char Rotor::TranslateStraight(char letter) const {
     assert(is_valid(letter) && "letter not valid.");
-    letter = Offset(letter, offset_ - ring_);
+    letter = AddOffset(letter, offset_ - ring_);
     letter = rotor_[to_index(letter)];
-    return Offset(letter, ring_ - offset_);
+    return AddOffset(letter, ring_ - offset_);
 }
 
 char Rotor::TranslateReverse(char letter) const {
     assert(is_valid(letter) && "letter not valid.");
-    letter = Offset(letter, offset_ - ring_);
+    letter = AddOffset(letter, offset_ - ring_);
     letter = ALPHABET[index_of(rotor_, letter)];
-    return Offset(letter, ring_ - offset_);
+    return AddOffset(letter, ring_ - offset_);
 }
 
-char Rotor::Offset(char letter, std::size_t offset) const {
+char Rotor::AddOffset(char letter, std::size_t offset) const {
     return ALPHABET[(to_index(letter) + offset + 26) % 26];
 }
 

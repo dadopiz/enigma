@@ -2,11 +2,14 @@
  Cpp implementation of an Enigma machine.
 
 ## BUILD
-TODO
- 
+```Shell
+mkdir build
+cd build
+cmake ..
+cmake --build .
+```
+
 ## TODO
 - documentation
-- M4 test
 - code coverage
-- eliminate the TODO
 - ...
