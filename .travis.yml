@@ -10,13 +10,17 @@ addons:
       - g++-6
       - cmake
 
+env: 
+  - CC=gcc-6
+  - CXX=g++-6
+ 
+
 compiler:
   - g++-6
 
 before_script:
   - mkdir build
   - cd build
-  - g++ --version
   - cmake ..
 
 script:
