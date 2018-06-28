@@ -22,7 +22,7 @@ inline constexpr bool is_valid_alphabet(const char(&arr)[N]) {
 }
 
 int main(int, const char**) {
-    enigma::Reflector custom_reflector({"QWERTYUIOPASDFGHJKLZXCVBNM"});
+    enigma::Reflector custom_reflector(enigma::Letters{{"QWERTYUIOPASDFGHJKLZXCVBNM"}});
     std::cout << "custom_reflector translate Z in... " << custom_reflector.Translate('Z') << std::endl;
 
     auto historical_reflector = enigma::historical::reflector::B;
