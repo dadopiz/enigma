@@ -9,6 +9,7 @@ addons:
       - gcc-6
       - g++-6
       - cmake
+      - lcov
 
 env: CC=gcc-6 CXX=g++-6
 
@@ -22,7 +23,15 @@ before_install:
 before_script:
   - mkdir build
   - cd build
-  - cmake ..
+  - cmake -DENABLE_COVERAGE:BOOL=ON ..
 
 script:
   - cmake --build .
+  
+after_success:
+  - ./enigma_test
+  - cd ${TRAVIS_BUILD_DIR}
+  - lcov --directory . --capture --output-file coverage.info
+  - lcov --remove coverage.info '/usr/*' --output-file coverage.info
+  - lcov --list coverage.info
+  - bash <(curl -s https://codecov.io/bash) -t 009ed1e5-c121-4c0b-9ce6-e9b2686c3e78
