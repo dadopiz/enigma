@@ -4,6 +4,14 @@ set(TARGET_OBJECT_NAME "${TARGET_NAME}Objects")
 set(TARGET_STATIC_NAME "${TARGET_NAME}Static")
 set(TARGET_SHARED_NAME "${TARGET_NAME}")
 
+if(CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_GNUCXX)
+    if(ENABLE_COVERAGE)
+        message(STATUS "Enabling coverage")
+        set(CMAKE_BUILD_TYPE Debug)
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -O0 --coverage")
+    endif()
+endif()
+
 file(GLOB_RECURSE ENIGMA_SOURCES *.cpp)
 file(GLOB_RECURSE ENIGMA_HEADERS *.h)
 
