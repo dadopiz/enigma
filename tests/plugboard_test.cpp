@@ -31,4 +31,6 @@ TEST(plugboard_test, test_connect) {
     plugboard.Reset();
     for(std::size_t i = 0; i < 13; ++i)
         EXPECT_TRUE(plugboard.Connect(enigma::to_char(i), enigma::to_char(13 + i)));
+
+    EXPECT_FALSE(plugboard.Connect('A', 'Z'));
 }
