@@ -63,4 +63,7 @@ TEST(m3_test, test_settings) {
     machine.RingStellung('A', 'A', 'A');
 
     EXPECT_EQ('B', machine.Translate('A'));
+
+    machine.GrundStellung('A', 'E', 'A');
+    EXPECT_EQ('F', machine.Translate('A'));
 }
