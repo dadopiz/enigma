@@ -1,6 +1,7 @@
 #ifndef ENIGMA_UTILS_H
 #define ENIGMA_UTILS_H
 
+#include <cassert>
 #include <array>
 
 namespace enigma {
@@ -11,6 +12,10 @@ static const Letters ALPHABET = {"ABCDEFGHIJKLMNOPQRSTUVWXYZ"};
 
 inline constexpr bool is_valid(char letter) {
     return (letter >= 'A' && letter <= 'Z');
+}
+
+inline constexpr void letter_assert(char letter) {
+    assert(is_valid(letter) && "letter not valid!");
 }
 
 inline constexpr char to_char(std::size_t index) {

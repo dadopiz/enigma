@@ -10,7 +10,7 @@ Plugboard::Plugboard()
 {}
 
 char Plugboard::Translate(char letter) const {
-    assert(is_valid(letter) && "letter not valid.");
+    letter_assert(letter);
     return plugboard_[to_index(letter)];
 }
 
@@ -20,7 +20,8 @@ void Plugboard::Reset() {
 }
 
 bool Plugboard::Connect(char lhs, char rhs) {
-    assert(is_valid(lhs) && is_valid(rhs) && "letters are not valid.");
+    letter_assert(lhs);
+    letter_assert(rhs);
 
     if(cables_ <= 0)
         return false;

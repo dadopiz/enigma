@@ -1,5 +1,3 @@
-#include <cassert>
-
 #include <enigma/rotor.h>
 
 namespace enigma {
@@ -12,12 +10,12 @@ Rotor::Rotor(Letters rotor, std::string notches)
 {}
 
 void Rotor::RingStellung(char ring) {
-    assert(is_valid(ring) && "ring not valid.");
+    letter_assert(ring);
     ring_ = to_index(ring);
 }
 
 void Rotor::GrundStellung(char offset) {
-    assert(is_valid(offset) && "offset not valid.");
+    letter_assert(offset);
     offset_ = to_index(offset);
 }
 
@@ -30,14 +28,14 @@ bool Rotor::IsNotch() const {
 }
 
 char Rotor::TranslateStraight(char letter) const {
-    assert(is_valid(letter) && "letter not valid.");
+    letter_assert(letter);
     letter = AddOffset(letter, offset_ - ring_);
     letter = rotor_[to_index(letter)];
     return AddOffset(letter, ring_ - offset_);
 }
 
 char Rotor::TranslateReverse(char letter) const {
-    assert(is_valid(letter) && "letter not valid.");
+    letter_assert(letter);
     letter = AddOffset(letter, offset_ - ring_);
     letter = ALPHABET[index_of(rotor_, letter)];
     return AddOffset(letter, ring_ - offset_);

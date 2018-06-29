@@ -1,7 +1,5 @@
 #include <enigma/reflector.h>
 
-#include <cassert>
-
 namespace enigma {
 
 Reflector::Reflector(Letters reflector)
@@ -9,7 +7,7 @@ Reflector::Reflector(Letters reflector)
 {}
 
 char Reflector::Translate(char letter) const {
-    assert(is_valid(letter) && "Invalid letter.");
+    letter_assert(letter);
     return reflector_[to_index(letter)];
 }
 
