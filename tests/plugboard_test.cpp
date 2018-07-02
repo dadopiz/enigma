@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
 #include <enigma/plugboard.h>
+#include <enigma/utils.h>
 
 TEST(plugboard_test, test_translate) {
     enigma::Plugboard plugboard;

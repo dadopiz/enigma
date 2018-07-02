@@ -1,8 +1,8 @@
 #ifndef ENIGMA_REFLECTOR_H
 #define ENIGMA_REFLECTOR_H
 
+#include<string>
 #include <enigma/global.h>
-#include <enigma/utils.h>
 
 namespace enigma {
 
@@ -18,7 +18,7 @@ public:
      * @brief Reflector
      * @param reflector array of letters used for encryption
      */
-    Reflector(Letters reflector);
+    Reflector(const std::string& reflector);
 
     /**
      * @brief Translate
@@ -28,7 +28,7 @@ public:
     char Translate(char letter) const;
 
 private:
-    const Letters reflector_;
+    const std::string reflector_;
 };
 
 }

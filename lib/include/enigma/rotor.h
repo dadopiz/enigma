@@ -2,9 +2,7 @@
 #define ENIGMA_ROTOR_H
 
 #include <string>
-
 #include <enigma/global.h>
-#include <enigma/utils.h>
 
 namespace enigma {
 
@@ -22,7 +20,7 @@ public:
      * @param rotor   array of letters used for encryption
      * @param notches letters that determine the rotation of the following rotors
      */
-    Rotor(Letters rotor, std::string notches);
+    Rotor(const std::string& rotor, const std::string& notches);
 
     /**
      * @brief RingStellung
@@ -72,7 +70,7 @@ private:
      */
     char AddOffset(char letter, std::size_t offset) const;
 
-    const Letters rotor_;
+    const std::string rotor_;
     const std::string notches_;
 
     std::size_t ring_;

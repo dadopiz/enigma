@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
 #include <enigma/rotor.h>
 #include <enigma/historical.h>
+#include <enigma/utils.h>
 
 TEST(rotor_test, test_notch) {
     auto historical_rotor =  enigma::historical::rotor::I;
@@ -36,7 +37,7 @@ TEST(rotor_test, test_ring) {
 }
 
 TEST(rotor_test, test_custom_translate) {
-    enigma::Rotor custom_rotor(enigma::Letters{{"QWERTYUIOPASDFGHJKLZXCVBNM"}}, "A");
+    enigma::Rotor custom_rotor("QWERTYUIOPASDFGHJKLZXCVBNM", "A");
     EXPECT_EQ('Q', custom_rotor.TranslateStraight('A'));
     EXPECT_EQ('M', custom_rotor.TranslateStraight('Z'));
     EXPECT_EQ('Y', custom_rotor.TranslateStraight('F'));

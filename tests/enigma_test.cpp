@@ -22,13 +22,6 @@ TEST(utils_test, test_to_index) {
     EXPECT_EQ(26, enigma::to_index('['));
 }
 
-TEST(utils_test, test_index_of) {
-    EXPECT_EQ(0, enigma::index_of(enigma::ALPHABET, 'A'));
-    EXPECT_EQ(25, enigma::index_of(enigma::ALPHABET, 'Z'));
-    EXPECT_EQ(enigma::ALPHABET.size(), enigma::index_of(enigma::ALPHABET, '['));
-    EXPECT_EQ(enigma::ALPHABET.size(), enigma::index_of(enigma::ALPHABET, 'a'));
-}
-
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv); 
     return RUN_ALL_TESTS();

@@ -4,27 +4,29 @@
 #include <array>
 
 #include <enigma/global.h>
-#include <enigma/utils.h>
 #include <enigma/rotor.h>
+#include <enigma/reflector.h>
 
 namespace enigma {
 
 class ENIGMA_API Machine {
 public:
-    Machine(const std::array<Rotor, 3>& rotors);
+    Machine(const Rotor& fast_rotor,
+            const Rotor& midd_rotor,
+            const Rotor& slow_rotor,
+            const Reflector& reflector);
 
-    char TranslateStraight(char letter);
+    char Translate(char letter);
 
-    char TranslateReverse(char letter);
+    void RingStellung(char fast_ring, char midd_ring, char slow_ring);
 
-    void RingStellung(const std::array<char, 3>& rings);
-
-    void GrundStellung(const std::array<char, 3>& offsets);
-
-    void Turn();
+    void GrundStellung(char fast_offset, char midd_offset, char slow_offset);
 
 private:
+    void Turn();
+
     std::array<Rotor, 3> rotors_;
+    Reflector reflector_;
 };
 
 }

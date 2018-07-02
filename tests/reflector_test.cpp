@@ -3,7 +3,7 @@
 #include <enigma/historical.h>
 
 TEST(reflector_test, test_custom_translate) {
-    enigma::Reflector custom_reflector(enigma::Letters{{"QWERTYUIOPASDFGHJKLZXCVBNM"}});
+    enigma::Reflector custom_reflector("QWERTYUIOPASDFGHJKLZXCVBNM");
     EXPECT_EQ('Q', custom_reflector.Translate('A'));
     EXPECT_EQ('M', custom_reflector.Translate('Z'));
     EXPECT_EQ('Y', custom_reflector.Translate('F'));

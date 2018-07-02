@@ -1,10 +1,12 @@
 #include <enigma/rotor.h>
 
+#include <enigma/utils.h>
+
 namespace enigma {
 
-Rotor::Rotor(Letters rotor, std::string notches)
-    : rotor_(std::move(rotor))
-    , notches_(std::move(notches))
+Rotor::Rotor(const std::string& rotor, const std::string& notches)
+    : rotor_(rotor)
+    , notches_(notches)
     , ring_(0)
     , offset_(0)
 {}
@@ -37,7 +39,7 @@ char Rotor::TranslateStraight(char letter) const {
 char Rotor::TranslateReverse(char letter) const {
     letter_assert(letter);
     letter = AddOffset(letter, offset_ - ring_);
-    letter = ALPHABET[index_of(rotor_, letter)];
+    letter = ALPHABET[rotor_.find(letter)];
     return AddOffset(letter, ring_ - offset_);
 }
 

@@ -1,9 +1,11 @@
 #include <enigma/reflector.h>
 
+#include <enigma/utils.h>
+
 namespace enigma {
 
-Reflector::Reflector(Letters reflector)
-    : reflector_(std::move(reflector))
+Reflector::Reflector(const std::string& reflector)
+    : reflector_(reflector)
 {}
 
 char Reflector::Translate(char letter) const {

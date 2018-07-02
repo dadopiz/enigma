@@ -3,7 +3,6 @@
 
 #include <enigma/global.h>
 #include <enigma/machine.h>
-#include <enigma/reflector.h>
 #include <enigma/plugboard.h>
 
 namespace enigma {
@@ -31,10 +30,7 @@ public:
     bool Connect(char lhs, char rhs);
 
 private:
-    Machine machine_;
-    Rotor thin_rotor_;
-    Reflector thin_reflector_;
-    Plugboard plugboard_;
+    //TODO: M3? Machine?
 };
 
 }

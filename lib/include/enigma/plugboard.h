@@ -1,8 +1,9 @@
 #ifndef ENIGMA_PLUGBOARD_H
 #define ENIGMA_PLUGBOARD_H
 
+#include <string>
+
 #include <enigma/global.h>
-#include <enigma/utils.h>
 
 namespace enigma {
 
@@ -20,7 +21,7 @@ private:
     bool AreConnected(char lhs, char rhs) const;
 
     int cables_;
-    Letters plugboard_;
+    std::string plugboard_;
 };
 
 }

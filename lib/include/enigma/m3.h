@@ -3,7 +3,6 @@
 
 #include <enigma/global.h>
 #include <enigma/machine.h>
-#include <enigma/reflector.h>
 #include <enigma/plugboard.h>
 
 namespace enigma {
@@ -31,7 +30,6 @@ public:
 
 private:
     Machine machine_;
-    Reflector reflector_;
     Plugboard plugboard_;
 };
 

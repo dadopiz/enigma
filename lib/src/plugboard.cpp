@@ -1,6 +1,6 @@
 #include <enigma/plugboard.h>
 
-#include <cassert>
+#include <enigma/utils.h>
 
 namespace enigma {
 
