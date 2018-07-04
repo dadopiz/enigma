@@ -3,7 +3,6 @@
 
 #include <enigma/global.h>
 #include <enigma/utils.h>
-#include <enigma/machine.h>
 #include <enigma/rotor.h>
 #include <enigma/reflector.h>
 #include <enigma/plugboard.h>

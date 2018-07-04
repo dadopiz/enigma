@@ -1,8 +1,11 @@
 #ifndef ENIGMA_M4_H
 #define ENIGMA_M4_H
 
+#include <array>
+
 #include <enigma/global.h>
-#include <enigma/machine.h>
+#include <enigma/reflector.h>
+#include <enigma/rotor.h>
 #include <enigma/plugboard.h>
 
 namespace enigma {
@@ -30,7 +33,11 @@ public:
     bool Connect(char lhs, char rhs);
 
 private:
-    //TODO: M3? Machine?
+    void Turn();
+
+    std::array<Rotor, 4> rotors_;
+    Reflector thin_reflector_;
+    Plugboard plugboard_;
 };
 
 }
