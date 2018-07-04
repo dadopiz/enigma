@@ -36,7 +36,6 @@ after_success:
   - rm coverage_base.info
   - rm coverage_test.info
   - cd ${TRAVIS_BUILD_DIR}
-  - lcov --directory . --capture --output-file coverage.info
   - lcov --remove coverage.info '/usr/*' --output-file coverage.info
   - lcov --remove coverage.info '*/tests/*' --output-file coverage.info
   - lcov --remove coverage.info '*/examples/*' --output-file coverage.info
