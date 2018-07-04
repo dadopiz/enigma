@@ -2,24 +2,23 @@
 #include <enigma/utils.h>
 
 TEST(utils_test, test_is_valid) {
-    EXPECT_TRUE(enigma::is_valid('A'));
-    EXPECT_TRUE(enigma::is_valid('M'));
-    EXPECT_TRUE(enigma::is_valid('Z'));
+    for(char letter : enigma::ALPHABET)
+        EXPECT_TRUE(enigma::is_valid(letter));
 
-    EXPECT_FALSE(enigma::is_valid('a'));
-    EXPECT_FALSE(enigma::is_valid('?'));
+    std::string alphabet = enigma::ALPHABET;
+    std::transform(alphabet.begin(), alphabet.end(), alphabet.begin(), ::tolower);
+    for(char letter : alphabet)
+        EXPECT_FALSE(enigma::is_valid(letter));
 }
 
 TEST(utils_test, test_to_char) {
-    EXPECT_EQ('A', enigma::to_char(0));
-    EXPECT_EQ('Z', enigma::to_char(25));
-    EXPECT_EQ('[', enigma::to_char(26));
+    for(std::size_t i = 0; i < enigma::ALPHABET.size(); ++i)
+        EXPECT_EQ(enigma::ALPHABET[i], enigma::to_char(i));
 }
 
 TEST(utils_test, test_to_index) {
-    EXPECT_EQ(0, enigma::to_index('A'));
-    EXPECT_EQ(25, enigma::to_index('Z'));
-    EXPECT_EQ(26, enigma::to_index('['));
+    for(std::size_t i = 0; i < enigma::ALPHABET.size(); ++i)
+        EXPECT_EQ(i, enigma::to_index(enigma::ALPHABET[i]));
 }
 
 int main(int argc, char **argv) {
