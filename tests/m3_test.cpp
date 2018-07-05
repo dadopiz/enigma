@@ -1,4 +1,5 @@
 #include <gtest/gtest.h>
+#include <enigma/m3.h>
 #include <enigma/historical.h>
 
 TEST(m3_test, test_translate) {
