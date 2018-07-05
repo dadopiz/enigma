@@ -7,4 +7,5 @@ build_script:
   - cmake --build .
 
 test_script:
+  - cd Debug
   - enigma_test.exe
