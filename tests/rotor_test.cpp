@@ -48,9 +48,12 @@ TEST(rotor_test, test_custom_translate) {
 
 TEST(rotor_test, test_historical_I_translate) {
     auto historical_rotor =  enigma::historical::rotor::I;
-    EXPECT_EQ('E', historical_rotor.TranslateStraight('A'));
-    EXPECT_EQ('J', historical_rotor.TranslateStraight('Z'));
-    EXPECT_EQ('G', historical_rotor.TranslateStraight('F'));
+    std::string rotor_1("EKMFLGDQVZNTOWYHXUSPAIBRCJ");
+
+    for(std::size_t i = 0; i < rotor_1.size(); ++i)
+        EXPECT_EQ(rotor_1[i], historical_rotor.TranslateStraight(enigma::to_char(i)));
+
+    //TODO: reverse translation
     EXPECT_EQ('U', historical_rotor.TranslateReverse('A'));
     EXPECT_EQ('J', historical_rotor.TranslateReverse('Z'));
     EXPECT_EQ('D', historical_rotor.TranslateReverse('F'));
@@ -58,9 +61,12 @@ TEST(rotor_test, test_historical_I_translate) {
 
 TEST(rotor_test, test_historical_II_translate) {
     auto historical_rotor =  enigma::historical::rotor::II;
-    EXPECT_EQ('A', historical_rotor.TranslateStraight('A'));
-    EXPECT_EQ('E', historical_rotor.TranslateStraight('Z'));
-    EXPECT_EQ('I', historical_rotor.TranslateStraight('F'));
+    std::string rotor_2("AJDKSIRUXBLHWTMCQGZNPYFVOE");
+
+    for(std::size_t i = 0; i < rotor_2.size(); ++i)
+        EXPECT_EQ(rotor_2[i], historical_rotor.TranslateStraight(enigma::to_char(i)));
+
+    //TODO: reverse translation
     EXPECT_EQ('A', historical_rotor.TranslateReverse('A'));
     EXPECT_EQ('S', historical_rotor.TranslateReverse('Z'));
     EXPECT_EQ('W', historical_rotor.TranslateReverse('F'));
@@ -68,9 +74,12 @@ TEST(rotor_test, test_historical_II_translate) {
 
 TEST(rotor_test, test_historical_III_translate) {
     auto historical_rotor =  enigma::historical::rotor::III;
-    EXPECT_EQ('B', historical_rotor.TranslateStraight('A'));
-    EXPECT_EQ('O', historical_rotor.TranslateStraight('Z'));
-    EXPECT_EQ('L', historical_rotor.TranslateStraight('F'));
+    std::string rotor_3("BDFHJLCPRTXVZNYEIWGAKMUSQO");
+
+    for(std::size_t i = 0; i < rotor_3.size(); ++i)
+        EXPECT_EQ(rotor_3[i], historical_rotor.TranslateStraight(enigma::to_char(i)));
+
+    //TODO: reverse translation
     EXPECT_EQ('T', historical_rotor.TranslateReverse('A'));
     EXPECT_EQ('M', historical_rotor.TranslateReverse('Z'));
     EXPECT_EQ('C', historical_rotor.TranslateReverse('F'));
@@ -78,9 +87,12 @@ TEST(rotor_test, test_historical_III_translate) {
 
 TEST(rotor_test, test_historical_IV_translate) {
     auto historical_rotor =  enigma::historical::rotor::IV;
-    EXPECT_EQ('E', historical_rotor.TranslateStraight('A'));
-    EXPECT_EQ('B', historical_rotor.TranslateStraight('Z'));
-    EXPECT_EQ('Z', historical_rotor.TranslateStraight('F'));
+    std::string rotor_4("ESOVPZJAYQUIRHXLNFTGKDCMWB");
+
+    for(std::size_t i = 0; i < rotor_4.size(); ++i)
+        EXPECT_EQ(rotor_4[i], historical_rotor.TranslateStraight(enigma::to_char(i)));
+
+    //TODO: reverse translation
     EXPECT_EQ('H', historical_rotor.TranslateReverse('A'));
     EXPECT_EQ('F', historical_rotor.TranslateReverse('Z'));
     EXPECT_EQ('R', historical_rotor.TranslateReverse('F'));
@@ -88,9 +100,12 @@ TEST(rotor_test, test_historical_IV_translate) {
 
 TEST(rotor_test, test_historical_V_translate) {
     auto historical_rotor =  enigma::historical::rotor::V;
-    EXPECT_EQ('V', historical_rotor.TranslateStraight('A'));
-    EXPECT_EQ('K', historical_rotor.TranslateStraight('Z'));
-    EXPECT_EQ('I', historical_rotor.TranslateStraight('F'));
+    std::string rotor_5("VZBRGITYUPSDNHLXAWMJQOFECK");
+
+    for(std::size_t i = 0; i < rotor_5.size(); ++i)
+        EXPECT_EQ(rotor_5[i], historical_rotor.TranslateStraight(enigma::to_char(i)));
+
+    //TODO: reverse translation
     EXPECT_EQ('Q', historical_rotor.TranslateReverse('A'));
     EXPECT_EQ('B', historical_rotor.TranslateReverse('Z'));
     EXPECT_EQ('W', historical_rotor.TranslateReverse('F'));
