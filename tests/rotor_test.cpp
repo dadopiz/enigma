@@ -37,10 +37,13 @@ TEST(rotor_test, test_ring) {
 }
 
 TEST(rotor_test, test_custom_translate) {
-    enigma::Rotor custom_rotor("QWERTYUIOPASDFGHJKLZXCVBNM", "A");
-    EXPECT_EQ('Q', custom_rotor.TranslateStraight('A'));
-    EXPECT_EQ('M', custom_rotor.TranslateStraight('Z'));
-    EXPECT_EQ('Y', custom_rotor.TranslateStraight('F'));
+    std::string rotor("QWERTYUIOPASDFGHJKLZXCVBNM");
+    enigma::Rotor custom_rotor(rotor, "A");
+
+    for(std::size_t i = 0; i < rotor.size(); ++i)
+        EXPECT_EQ(rotor[i], custom_rotor.TranslateStraight(enigma::to_char(i)));
+
+    //TODO: reverse translation
     EXPECT_EQ('K', custom_rotor.TranslateReverse('A'));
     EXPECT_EQ('T', custom_rotor.TranslateReverse('Z'));
     EXPECT_EQ('N', custom_rotor.TranslateReverse('F'));
