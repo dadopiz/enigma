@@ -7,15 +7,15 @@
 
 namespace enigma {
 
-class Plugboard {
+class ENIGMA_API Plugboard {
 public:
-    ENIGMA_API Plugboard();
+    Plugboard();
 
-    ENIGMA_API char Translate(char letter) const;
+    char Translate(char letter) const;
 
-    ENIGMA_API void Reset();
+    void Reset();
 
-    ENIGMA_API bool Connect(char lhs, char rhs);
+    bool Connect(char lhs, char rhs);
 
 private:
     bool AreConnected(char lhs, char rhs) const;

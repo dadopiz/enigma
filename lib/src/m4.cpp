@@ -2,8 +2,6 @@
 
 namespace enigma {
 
-namespace historical {
-
 M4::M4(const Rotor& fast_rotor,
        const Rotor& midd_rotor,
        const Rotor& slow_rotor,
@@ -70,8 +68,6 @@ void M4::Turn() {
         rotors_[1].Turn();
 
     rotors_[0].Turn();
-}
-
 }
 
 }

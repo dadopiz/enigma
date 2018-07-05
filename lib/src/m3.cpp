@@ -2,8 +2,6 @@
 
 namespace enigma {
 
-namespace historical {
-
 M3::M3(const Rotor& fast_rotor,
        const Rotor& midd_rotor,
        const Rotor& slow_rotor,
@@ -67,8 +65,6 @@ void M3::ResetPlugboard() {
 
 bool M3::Connect(char lhs, char rhs) {
     return plugboard_.Connect(lhs, rhs);
-}
-
 }
 
 }

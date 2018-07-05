@@ -5,9 +5,8 @@
 TEST(m3_test, test_translate) {
     using enigma::historical::rotor;
     using enigma::historical::reflector;
-    using enigma::historical::M3;
 
-    M3 machine(rotor::III, rotor::II, rotor::I, reflector::B);
+    enigma::M3 machine(rotor::III, rotor::II, rotor::I, reflector::B);
 
     std::string result("BDZGOWCXLTKSBTMCDLPBMUQOFXYHCXTGYJFLINHNXSHIUNTHEORXPQPKOVHC");
     for(char res : result)
@@ -17,9 +16,8 @@ TEST(m3_test, test_translate) {
 TEST(m3_test, test_translate_phrase) {
     using enigma::historical::rotor;
     using enigma::historical::reflector;
-    using enigma::historical::M3;
 
-    M3 machine(rotor::III, rotor::II, rotor::I, reflector::B);
+    enigma::M3 machine(rotor::III, rotor::II, rotor::I, reflector::B);
 
     std::string input(60, 'A');
     std::string result("BDZGOWCXLTKSBTMCDLPBMUQOFXYHCXTGYJFLINHNXSHIUNTHEORXPQPKOVHC");
@@ -29,9 +27,8 @@ TEST(m3_test, test_translate_phrase) {
 TEST(m3_test, test_connect) {
     using enigma::historical::rotor;
     using enigma::historical::reflector;
-    using enigma::historical::M3;
 
-    M3 machine(rotor::III, rotor::II, rotor::I, reflector::B);
+    enigma::M3 machine(rotor::III, rotor::II, rotor::I, reflector::B);
 
     EXPECT_TRUE(machine.Connect('A', 'Z'));
 
@@ -45,9 +42,8 @@ TEST(m3_test, test_connect) {
 TEST(m3_test, test_settings) {
     using enigma::historical::rotor;
     using enigma::historical::reflector;
-    using enigma::historical::M3;
 
-    M3 machine(rotor::III, rotor::II, rotor::I, reflector::B);
+    enigma::M3 machine(rotor::III, rotor::II, rotor::I, reflector::B);
 
     EXPECT_EQ('B', machine.Translate('A'));
 

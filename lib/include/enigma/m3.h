@@ -10,8 +10,6 @@
 
 namespace enigma {
 
-namespace historical {
-
 class ENIGMA_API M3 {
 public:
     M3(const Rotor& fast_rotor,
@@ -38,8 +36,6 @@ private:
     Reflector reflector_;
     Plugboard plugboard_;
 };
-
-}
 
 }
 
