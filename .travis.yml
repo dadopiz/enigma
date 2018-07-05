@@ -39,5 +39,6 @@ after_success:
   - lcov --remove coverage.info '/usr/*' --output-file coverage.info
   - lcov --remove coverage.info '*/tests/*' --output-file coverage.info
   - lcov --remove coverage.info '*/examples/*' --output-file coverage.info
+  - lcov --remove coverage.info '*/include/*' --output-file coverage.info
   - lcov --list coverage.info
   - bash <(curl -s https://codecov.io/bash) -t 009ed1e5-c121-4c0b-9ce6-e9b2686c3e78
