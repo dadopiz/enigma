@@ -9,6 +9,25 @@ This library implements the M3 and M4 machines used by Wehrmacht and Kriegsmarin
 ### Notes
 This project aims to be an exercise for using C++, CMake, googletest and CI tools.
 
+### Example
+```C++
+#include <iostream>
+#include <string>
+#include <enigma/enigma>
+
+int main() {
+    using enigma::historical::rotor;
+    using enigma::historical::reflector;
+
+    enigma::M3 machine(rotor::III, rotor::II, rotor::I, reflector::B);
+
+    std::cout << "Enigma, say hello:" << std::endl;
+    std::cout << machine.Translate("HELLOWORLD") << std::endl;
+
+    return 0;
+}
+```
+
 ### Build
 The project require a C++11 compiler.
 ```Shell
@@ -17,6 +36,3 @@ cd build
 cmake ..
 cmake --build .
 ```
-
-### TODO
-- first release
