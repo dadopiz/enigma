@@ -23,36 +23,36 @@
 #include <enigma/historical.h>
 
 TEST(reflector_test, test_custom_translate) {
-    enigma::Reflector custom_reflector("QWERTYUIOPASDFGHJKLZXCVBNM");
-    EXPECT_EQ('Q', custom_reflector.Translate('A'));
-    EXPECT_EQ('M', custom_reflector.Translate('Z'));
-    EXPECT_EQ('Y', custom_reflector.Translate('F'));
+    enigma::Reflector reflector("QWERTYUIOPASDFGHJKLZXCVBNM");
+    EXPECT_EQ('Q', reflector.Translate('A'));
+    EXPECT_EQ('M', reflector.Translate('Z'));
+    EXPECT_EQ('Y', reflector.Translate('F'));
 }
 
 TEST(reflector_test, test_historical_B_translate) {
-    auto historical_reflector =  enigma::historical::reflector::B;
-    EXPECT_EQ('Y', historical_reflector.Translate('A'));
-    EXPECT_EQ('T', historical_reflector.Translate('Z'));
-    EXPECT_EQ('S', historical_reflector.Translate('F'));
+    auto reflector =  enigma::historical::reflector::B;
+    EXPECT_EQ('Y', reflector.Translate('A'));
+    EXPECT_EQ('T', reflector.Translate('Z'));
+    EXPECT_EQ('S', reflector.Translate('F'));
 }
 
 TEST(reflector_test, test_historical_C_translate) {
-    auto historical_reflector =  enigma::historical::reflector::C;
-    EXPECT_EQ('F', historical_reflector.Translate('A'));
-    EXPECT_EQ('L', historical_reflector.Translate('Z'));
-    EXPECT_EQ('A', historical_reflector.Translate('F'));
+    auto reflector =  enigma::historical::reflector::C;
+    EXPECT_EQ('F', reflector.Translate('A'));
+    EXPECT_EQ('L', reflector.Translate('Z'));
+    EXPECT_EQ('A', reflector.Translate('F'));
 }
 
 TEST(reflector_test, test_historical_thinB_translate) {
-    auto historical_reflector =  enigma::historical::reflector::BThin;
-    EXPECT_EQ('E', historical_reflector.Translate('A'));
-    EXPECT_EQ('S', historical_reflector.Translate('Z'));
-    EXPECT_EQ('U', historical_reflector.Translate('F'));
+    auto reflector =  enigma::historical::reflector::BThin;
+    EXPECT_EQ('E', reflector.Translate('A'));
+    EXPECT_EQ('S', reflector.Translate('Z'));
+    EXPECT_EQ('U', reflector.Translate('F'));
 }
 
 TEST(reflector_test, test_historical_thinC_translate) {
-    auto historical_reflector =  enigma::historical::reflector::CThin;
-    EXPECT_EQ('R', historical_reflector.Translate('A'));
-    EXPECT_EQ('Q', historical_reflector.Translate('Z'));
-    EXPECT_EQ('N', historical_reflector.Translate('F'));
+    auto reflector =  enigma::historical::reflector::CThin;
+    EXPECT_EQ('R', reflector.Translate('A'));
+    EXPECT_EQ('Q', reflector.Translate('Z'));
+    EXPECT_EQ('N', reflector.Translate('F'));
 }

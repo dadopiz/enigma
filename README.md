@@ -3,9 +3,14 @@
 [![codecov](https://codecov.io/gh/dadopiz/enigma/branch/master/graph/badge.svg)](https://codecov.io/gh/dadopiz/enigma)
 
 # enigma
-Cpp implementation of an Enigma machine.
+## C++ library of the Enigma machine
+This library implements the M3 and M4 machines used by Wehrmacht and Kriegsmarine during the WW2.
 
-## BUILD
+### Notes
+This project aims to be an exercise for using C++, CMake, googletest and CI tools.
+
+### Build
+The project require a C++11 compiler.
 ```Shell
 mkdir build
 cd build
@@ -13,5 +18,5 @@ cmake ..
 cmake --build .
 ```
 
-## TODO
-- ...
+### TODO
+- first release
