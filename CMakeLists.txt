@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.2.0)
 
-project(enigma)
+project(enigma VERSION 1.0.0 LANGUAGES CXX)
 
 option(ENABLE_COVERAGE "Enable coverage" OFF)
 
